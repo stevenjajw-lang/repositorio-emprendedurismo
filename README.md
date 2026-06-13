@@ -7,7 +7,7 @@ Este proyecto es una página web personal desplegada en **GitHub Pages**. Fue de
 * **CSS3** - Estilos visuales, diseño responsivo y efectos interactivos.
 
 ## 🔗 Enlaces del Proyecto
-* [Ver la Web en Vivo](https://github.io)
+* [Ver la Web en Vivo](https://stevenjajw-lang.github.io/repositorio-emprendedurismo/)
 
 * [Mi Perfil de LinkedIn](https://linkedin.com)
 
