@@ -8,6 +8,7 @@ Este proyecto es una página web personal desplegada en **GitHub Pages**. Fue de
 
 ## 🔗 Enlaces del Proyecto
 * [Ver la Web en Vivo](https://github.io)
+
 * [Mi Perfil de LinkedIn](https://linkedin.com)
 
 ---
