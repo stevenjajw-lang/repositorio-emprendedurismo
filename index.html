@@ -3,86 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil Profesional</title>
+    <title>Steven Alconada | Perfil Técnico y Profesional</title>
+    <!-- Iconos profesionales FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #0f766e;
+            --accent: #14b8a6;
+            --powerbi-color: #f2c811;
+            --powerbi-bg: #fffbeb;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
+
+        .portfolio-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            max-width: 750px;
             width: 100%;
+            padding: 40px;
         }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-            font-size: 24px;
+
+        /* Encabezado Principal */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 25px;
         }
-        h2 {
-            color: #16a085;
-            font-size: 16px;
-            font-weight: 400;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #666;
-        }
-        .links {
-            margin-top: 25px;
-        }
-        .btn {
-            display: block;
-            background: #2c3e50;
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
+            font-size: 38px;
+            box-shadow: 0 8px 16px rgba(15, 118, 110, 0.15);
         }
+
+        h1 {
+            font-size: 32px;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .location {
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Estilo de Secciones */
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2.section-title {
+            font-size: 18px;
+            color: var(--primary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 12px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        p.profile-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        /* Bloques de Experiencia sin nombres de empresas */
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .job-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .job-details {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .job-details li {
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .job-details li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Distribución de Educación y Habilidades */
+        .grid-two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .edu-item {
+            margin-bottom: 15px;
+        }
+
+        .edu-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-institution {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Etiquetas de Habilidades */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            background: #f8fafc;
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* RESALTADO ESPECIAL PARA POWER BI Y TECNOLOGÍAS */
+        .skill-badge.highlight-pbi {
+            background: var(--powerbi-bg);
+            color: #78350f;
+            border: 1.5px solid var(--powerbi-color);
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(242, 200, 17, 0.15);
+        }
+        .skill-badge.highlight-tech {
+            background: #f0fdfa;
+            color: var(--secondary);
+            border: 1px solid var(--accent);
+            font-weight: 600;
+        }
+
+        .skill-badge i { font-size: 14px; }
+        .skill-badge.highlight-pbi i { color: #b45309; font-size: 16px; }
+        .skill-badge i.fa-python { color: #3776AB; }
+        .skill-badge i.fa-file-excel { color: #107C41; }
+        .skill-badge i.fa-code { color: #14b8a6; }
+
+        /* Botones de Enlaces / Redes */
+        .links-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-linkedin { background: #0077b5; }
+        .btn-github { background: #24292e; }
+
         .btn:hover {
-            background: #16a085;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            filter: brightness(1.1);
+        }
+
+        /* Footer / Contacto Directo */
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 650px) {
+            .grid-two-columns {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .links-container {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-container {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
 <body>
-        transition: background 0.3s;
-    }
 
-    .btn:hover {
-        background: #16a085;
-    }
-</style>
-</head>
-<body>
-
-    <div class="card">
-        <!-- REEMPLAZA LOS DATOS DE ABAJO CON LOS TUYOS -->
-        <h1>Steven Alconada</h1>
-        <h2>>Estudiante Universitario en Programación Full Stack</h2>
+    <div class="portfolio-container">
         
-        <p>¡Bienvenido a mi página personal! Este sitio está alojado en GitHub Pages como parte del trabajo integrador de la materia.</p>
-        
-        <div class="links">
-            <!-- Poné los links reales de tus perfiles reemplazando el # -->
-            <a href="https://linkedin.com" target="_blank" class="btn">Mi Perfil de LinkedIn</a>
-            <a href="https://stevenjajw-lang.github.io/repositorio-emprendedurismo/" target="_blank" class="btn">Mi GitHub</a>
-        </div>
-    </div>
+        <!-- ENCABEZADO -->
+        <header>
+            <div class="avatar">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h1>Steven Alconada</h1>
+            <div class="subtitle">Especialista en Datos & Desarrollador Full Stack en Formación</div>
+            <div class="location">
+                <i class="fa-solid fa-location-dot"></i> Córdoba, Argentina
+            </div>
+        </header>
 
-</body>
+        <!-- SOBRE MÍ -->
+        <section>
+            <h2 class="section-title">Perfil Profesional</h2>
+            <p class="profile-desc">
+                Perfil técnico orientado al análisis de datos, optimización y automatización de procesos informáticos. Cuento con una sólida trayectoria en operaciones logísticas eficientes, gestión analítica de inventarios y atención al público. Integro conocimientos avanzados en la creación de tableros con Power BI, programación funcional con Python y desarrollo de arquitecturas web Full Stack.
+            </p>
+        </section>
+
+        <!-- EXPERIENCIA CENTRADA EN COMPETENCIAS -->
+        <section>
+            <h2 class="section-title">Experiencia y Logros Operativos</h2>
+            
+            <div class="timeline-item">
+                <div class="job-header">
+                    <span class="job-title">Gestión de Logística y Control de Inventarios</span>
+                    <span class="job-date">2026 – Actualidad</span>
+                </div>
+                <ul class="job-details">
+                    <li>Coordinación de flujos de carga y descarga de mercadería de alta rotación.</li>
+
+
